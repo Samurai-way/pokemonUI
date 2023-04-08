@@ -1,26 +1,34 @@
-import {IUser} from "../../models/IUser";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {IPokemons} from "../../models/IPokemons";
 
 
-interface UserState{
-    users: IUser[]
+interface PokemonstState {
+    pokemons: IPokemons[]
     isLoading: boolean
     error: string
-    count: number
 }
 
-const initialState: UserState = {
-    users: [],
+const initialState: PokemonstState = {
+    pokemons: [],
     isLoading: false,
     error: '',
-    count: 0
 }
 export const pokemonSlice = createSlice({
     name: 'pokemon',
     initialState,
     reducers: {
-        increment(state, action: PayloadAction<number>){
-            state.count += action.payload
+        pokemonsFetching(state) {
+            state.isLoading = true
+        },
+        pokemonsFetchingSuccess(state, action: PayloadAction<IPokemons[]>) {
+            // debugger
+            state.isLoading = false
+            state.error = ''
+            state.pokemons = action.payload
+        },
+        pokemonsFetchingError(state, action: PayloadAction<string>) {
+            state.isLoading = false
+            state.error = action.payload
         }
     }
 })
