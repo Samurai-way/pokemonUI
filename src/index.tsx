@@ -5,6 +5,8 @@ import App from './app/App';
 import reportWebVitals from './reportWebVitals';
 import {setupStore} from "./store/store";
 import {Provider} from "react-redux";
+import {Button} from "./features/buttons/PokemonList";
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -14,7 +16,8 @@ const store = setupStore()
 
 root.render(
     <Provider store={store}>
-    <App />
+    {/*<App />*/}
+        <Button title={'Pokémon Lists'}/>
     </Provider>,
 );
 
