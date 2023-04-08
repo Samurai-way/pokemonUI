@@ -19,7 +19,7 @@ import axios from "axios";
 export const fetchPokemons = async (page: number, limit: number, dispatch: AppDispatch) => {
     try {
         dispatch(pokemonSlice.actions.pokemonsFetching())
-        const response = await axios.get(`https://pokemon-gahe.onrender.com/api/pokemon?page=${page}&limit=${limit}`)
+        const response = await axios.get(`https://pokemon-gahe.onrender.com/api/pokemon?pageNumber=${page}&pageSize=${limit}`)
         dispatch(pokemonSlice.actions.pokemonsFetchingSuccess(response.data.items))
     } catch (e: any) {
         dispatch(pokemonSlice.actions.pokemonsFetchingError(e.message))
