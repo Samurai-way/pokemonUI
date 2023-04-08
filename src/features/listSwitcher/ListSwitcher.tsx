@@ -10,28 +10,27 @@ export const ListSwitcher = () => {
 
     const style = {
         width: "50%",
-        borderRadius: '20px',
-        height: "80%",
-        backgroundColor: activeIndex === 0 ? "#0B213F" : "#E0E0E0",
+        borderRadius: '16px',
+        height: "90%",
+        backgroundColor: activeIndex === 0 ? "#0B213F" : "#eba000",
         color: activeIndex === 0 ? "white" : "black",
         border: "none",
         outline: "none",
-        cursor: "pointer",
     }
 
     const style2 = {
         width: "50%",
-        borderRadius: '20px',
-        height: "80%",
-        backgroundColor: activeIndex === 1 ? "#0B213F" : "#E0E0E0",
+        borderRadius: '16px',
+        height: "90%",
+        backgroundColor: activeIndex === 1 ? "#0B213F" : "#eba000",
         color: activeIndex === 1 ? "white" : "black",
         border: "none",
         outline: "none",
-        cursor: "pointer",
+        marginTop: '2px'
     }
 
     return (
-        <div style={{width: "324px", height: "56px", border: '2px solid black'}}>
+        <div style={{width: "324px", height: "56px", border: '2px solid black', borderRadius: '16px'}}>
             <Button title={'Pokémon List'} style={style} onClickHandler={() => handleButtonClick(0)}/>
             <Button title={'My pokémons'} style={style2} onClickHandler={() => handleButtonClick(1)}/>
         </div>

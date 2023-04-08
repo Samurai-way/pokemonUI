@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import {setupStore} from "./store/store";
 import {Provider} from "react-redux";
-import {ListSwitcher} from "./features/listSwitcher/ListSwitcher";
+import App from "./app/App";
 
 
 const root = ReactDOM.createRoot(
@@ -14,7 +14,7 @@ const store = setupStore()
 
 root.render(
     <Provider store={store}>
-        <ListSwitcher/>
+        <App/>
     </Provider>,
 );
 
