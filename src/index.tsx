@@ -16,8 +16,7 @@ const store = setupStore()
 
 root.render(
     <Provider store={store}>
-    {/*<App />*/}
-        <Button title={'Pokémon Lists'}/>
+
     </Provider>,
 );
 
