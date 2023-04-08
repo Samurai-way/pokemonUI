@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import {useAppDispatch, useAppSelector} from "../hooks/redux";
 import {pokemonSlice} from "../store/reducers/PokemonSlice";
 
@@ -12,8 +11,7 @@ function App() {
 
     return (
         <div className="App">
-            {/*{count}*/}
-            {/*<button onClick={() => dispatch(increment(+1))}>Increment</button>*/}
+
         </div>
     );
 }
