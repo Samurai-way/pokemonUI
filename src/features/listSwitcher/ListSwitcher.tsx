@@ -35,7 +35,7 @@ export const ListSwitcher = () => {
             <Link to={'/'}>
                 <Button title={'Pokémon List'} style={style} onClick={() => handleButtonClick(0)}/>
             </Link>
-            <Link to={'/mypokémons'}>
+            <Link style={style2} to={'/mypokémons'}>
                 <Button title={'My pokémons'} style={style2} onClick={() => handleButtonClick(1)}/>
             </Link>
         </div>

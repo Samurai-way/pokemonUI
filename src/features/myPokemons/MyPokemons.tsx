@@ -3,8 +3,8 @@ import {Header} from "../header/Header";
 
 export const MyPokemons = () => {
     return (
-        <header>
+        <div>
             <Header/>
-        </header>
+        </div>
     );
 };
