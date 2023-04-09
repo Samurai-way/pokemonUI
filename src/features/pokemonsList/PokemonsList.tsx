@@ -8,7 +8,7 @@ import {fetchPokemons} from "../../store/reducers/ActionCreators";
 export const PokemonsList = () => {
 
     const dispatch = useAppDispatch();
-    const {pokemons, isLoading, error} = useAppSelector(
+    const {pokemons} = useAppSelector(
         (state) => state.userReducer
     );
 

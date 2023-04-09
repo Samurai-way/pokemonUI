@@ -1,6 +1,8 @@
 import React, { CSSProperties, useState } from 'react';
 import { Button } from "../buttons/Button";
 import Web3 from 'web3';
+import {useAppDispatch} from "../../hooks/redux";
+import {pokemonSlice} from "../../store/reducers/PokemonSlice";
 
 type CardsPropsType = {
     img: string;
@@ -30,70 +32,13 @@ interface Props {
 }
 
 const Card: React.FC<Props> = (props: CardsPropsType) => {
+    const dispatch = useAppDispatch()
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleCardClick = () => {
         setIsModalOpen(true);
     };
 
-    // const handleAddToListClick = async () => {
-    //     if (!window.ethereum) {
-    //         console.error('Metamask is not available');
-    //         return;
-    //     }
-    //
-    //     const ethereum = window.ethereum as any;
-    //
-    //     try {
-    //         // Запрос доступа к аккаунту Metamask
-    //         const accounts = await ethereum.enable();
-    //         const account = accounts[0];
-    //
-    //         // Отправка сообщения "I want add {pokemonName} to my list"
-    //         const message = `I want add ${props.name} to my list`;
-    //
-    //         // Подписываем сообщение
-    //         const signature = await ethereum.request({
-    //             method: 'eth_sign',
-    //             params: [account, message],
-    //         });
-    //
-    //         console.log('account', account);
-    //         console.log('accounts', accounts);
-    //         console.log('message', message);
-    //         console.log('signature', signature);
-    //
-    //         // Отправляем запрос на сервер для сохранения покемона в MongoDB
-    //         const response = await fetch('http://localhost:3000/api/pokemon/create', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify({
-    //                 account,
-    //                 message,
-    //                 signature,
-    //                 pokemonName: props.name,
-    //             }),
-    //         });
-    //
-    //         if (response.ok) {
-    //             console.log('Pokemon added to list');
-    //         } else {
-    //             console.error('Failed to add pokemon to list');
-    //         }
-    //     } catch (err: any) {
-    //         debugger
-    //         console.log(err)
-    //         // Обработка ошибки, когда пользователь отклоняет запрос на доступ к аккаунту Metamask
-    //         if (err.code === 4001) {
-    //             console.log('User rejected the request');
-    //             alert('Please allow access to your Metamask account to continue.');
-    //         } else {
-    //             console.error(err);
-    //         }
-    //     }
-    // };
     const handleAddToListClick = async () => {
         if (!window.ethereum) {
             console.error('Metamask is not available');
@@ -101,7 +46,6 @@ const Card: React.FC<Props> = (props: CardsPropsType) => {
         }
 
         const ethereum = window.ethereum as any;
-
         try {
             // Запрос доступа к аккаунту Metamask
             const accounts = await ethereum.enable();
@@ -116,8 +60,6 @@ const Card: React.FC<Props> = (props: CardsPropsType) => {
                 params: [account, hash],
                 id: 1, // Добавляем параметр id со значением 1
             });
-
-
             // Отправляем запрос на сервер для сохранения покемона в MongoDB
             const response = await fetch('http://localhost:3000/api/pokemon/add', {
                 method: 'POST',
@@ -133,12 +75,12 @@ const Card: React.FC<Props> = (props: CardsPropsType) => {
             });
 
             if (response.ok) {
+                dispatch(pokemonSlice.actions.updateUserId(account))
                 console.log('Pokemon added to list');
             } else {
                 console.error('Failed to add pokemon to list');
             }
         } catch (err: any) {
-            debugger
             console.log(err)
             // Обработка ошибки, когда пользователь отклоняет запрос на доступ к аккаунту Metamask
             if (err.code === 4001) {

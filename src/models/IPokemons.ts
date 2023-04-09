@@ -6,7 +6,7 @@ export interface IPokemons {
     abilities: [string],
     level: number,
     evolution: [],
-    userId: null
+    userId: null | string
 }
 
 
