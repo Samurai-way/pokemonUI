@@ -31,8 +31,8 @@ export const ListSwitcher = () => {
 
     return (
         <div style={{width: "324px", height: "56px", border: '2px solid black', borderRadius: '16px'}}>
-            <Button title={'Pokémon List'} style={style} onClickHandler={() => handleButtonClick(0)}/>
-            <Button title={'My pokémons'} style={style2} onClickHandler={() => handleButtonClick(1)}/>
+            <Button title={'Pokémon List'} style={style} onClick={() => handleButtonClick(0)}/>
+            <Button title={'My pokémons'} style={style2} onClick={() => handleButtonClick(1)}/>
         </div>
     );
 };

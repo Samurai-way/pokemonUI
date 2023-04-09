@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {useAppDispatch, useAppSelector} from '../hooks/redux';
 import {Header} from '../features/header/Header';
-import {Card} from '../features/cards/Card';
 import {Button} from '../features/buttons/Button';
 import {fetchPokemons} from "../store/reducers/ActionCreators";
+import Card from "../features/cards/Card";
 
 function App() {
     const dispatch = useAppDispatch();
@@ -69,9 +69,9 @@ function App() {
             >
                 <div style={{width: '324px', height: '56px', borderRadius: '16px'}}>
                     <Button title={'Prev'} style={{width: '83px', borderRadius: '16px', height: '48px'}}
-                            onClickHandler={handlePrevClick}/>
+                            onClick={handlePrevClick}/>
                     <Button title={'Next'} style={{width: '83px', borderRadius: '16px', height: '48px'}}
-                            onClickHandler={handleNextClick}/>
+                            onClick={handleNextClick}/>
                 </div>
             </footer>
         </div>

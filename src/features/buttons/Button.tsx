@@ -4,12 +4,12 @@ import React, {CSSProperties} from 'react';
 type ButtonsProps = {
     title: string;
     style?: CSSProperties;
-    onClickHandler?: () => void
+    onClick: () => void;
 };
 
 export const Button = (props: ButtonsProps) => {
     return (
-        <button onClick={props.onClickHandler} style={props.style}>{props.title}</button>
+        <button onClick={props.onClick} style={props.style}>{props.title}</button>
     );
 };
 
