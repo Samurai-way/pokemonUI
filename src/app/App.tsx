@@ -3,7 +3,7 @@ import {PokemonsList} from "../features/pokemonsList/PokemonsList";
 import {Route, Routes} from "react-router-dom";
 import {MyPokemons} from "../features/myPokemons/MyPokemons";
 
-function App() {
+export const App = () => {
     return (
         <Routes>
             <Route path="/" element={<PokemonsList/>}/>
@@ -12,4 +12,3 @@ function App() {
     );
 }
 
-export default App;
