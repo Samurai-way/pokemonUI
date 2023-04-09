@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Button} from "../buttons/Button";
+import {Link} from "react-router-dom";
 
 export const ListSwitcher = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -31,8 +32,12 @@ export const ListSwitcher = () => {
 
     return (
         <div style={{width: "324px", height: "56px", border: '2px solid black', borderRadius: '16px'}}>
-            <Button title={'Pokémon List'} style={style} onClick={() => handleButtonClick(0)}/>
-            <Button title={'My pokémons'} style={style2} onClick={() => handleButtonClick(1)}/>
+            <Link to={'/'}>
+                <Button title={'Pokémon List'} style={style} onClick={() => handleButtonClick(0)}/>
+            </Link>
+            <Link to={'/mypokémons'}>
+                <Button title={'My pokémons'} style={style2} onClick={() => handleButtonClick(1)}/>
+            </Link>
         </div>
     );
 };
