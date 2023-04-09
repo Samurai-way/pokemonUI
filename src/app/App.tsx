@@ -31,8 +31,7 @@ function App() {
             <header>
                 <Header/>
             </header>
-            <main
-                style={{
+            <main style={{
                     display: 'grid',
                     width: '1290px',
                     height: '312px',
@@ -56,6 +55,7 @@ function App() {
                         type={p.type}
                         level={p.level}
                         style={{gridArea: `card${i + 1}`, border: '2px solid blue'}}
+
                     />
                 ))}
             </main>
