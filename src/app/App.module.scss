@@ -1,0 +1,15 @@
+.main {
+  display: grid;
+  padding: 20px;
+  //width: 1290px;
+  height: 312px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  grid-gap: 20px;
+  grid-template-areas:
+"card1 card2 card3 card4"
+"card5 card6 card7 card8"
+"card9 card10 card11 card12";
+  //margin-left:10px;
+}
+

@@ -1,16 +1,10 @@
-card {
-    /*border-radius: 16px;*/
-    /*border: 3px solid #c6c5c9;*/
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*width: 300px;*/
-    /*height: 312px;*/
-    /*flex-basis: calc(25% - 20px);*/
-    /*margin: 10px;*/
-    /*cursor: pointer;*/
+.card {
+    border-radius: 16px;
+    border: 3px solid #c6c5c9;
+    width: 300px;
 }
 
-modal-overlay {
+.modalOverlay {
     position: fixed;
     z-index: 1;
     top: 0;
@@ -20,7 +14,7 @@ modal-overlay {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-modal {
+.modal {
     background-color: #fff;
     border-radius: 16px;
     border: 3px solid #c6c5c9;
@@ -35,7 +29,7 @@ modal {
     overflow: auto;
 }
 
-close {
+.close {
     color: #aaa;
     float: right;
     font-size: 28px;

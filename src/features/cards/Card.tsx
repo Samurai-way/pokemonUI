@@ -3,6 +3,7 @@ import {Button} from "../buttons/Button";
 import Web3 from 'web3';
 import {useAppDispatch} from "../../hooks/redux";
 import {pokemonSlice} from "../../store/reducers/PokemonSlice";
+import c from './Card.module.css'
 
 type CardsPropsType = {
     img: string;
@@ -94,17 +95,17 @@ export const Card: React.FC<Props> = (props: CardsPropsType) => {
     return (
         <>
             <div
-                // style={props.style}
-                 className={'card'} onClick={handleCardClick}>
+                 className={c.card}
+                 onClick={handleCardClick}>
                 <img src={props.img} alt={props.name}/>
                 <h1>{props.name}</h1>
                 <p>Type: {props.type}</p>
                 <p>Level: {props.level}</p>
             </div>
             {isModalOpen && (
-                <div className={'modal-overlay'}>
-                    <div className={'modal'}>
-                        <button className={'modal-close'} onClick={() => setIsModalOpen(false)}>
+                <div className={c.modalOverlay}>
+                    <div className={c.modal}>
+                        <button className={c.close} onClick={() => setIsModalOpen(false)}>
                             X
                         </button>
                         <Button title={'Add to my list'} onClick={handleAddToListClick}/>
