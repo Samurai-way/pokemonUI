@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Header} from "../header/Header";
-import Card from "../cards/Card";
 import {Button} from "../buttons/Button";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {fetchPokemons} from "../../store/reducers/ActionCreators";
+import { Card } from '../cards/Card';
 
 export const PokemonsList = () => {
 
@@ -33,6 +33,7 @@ export const PokemonsList = () => {
             </header>
             <main style={{
                 display: 'grid',
+                padding: '20px',
                 width: '1290px',
                 height: '312px',
                 gridTemplateColumns: 'repeat(4, 1fr)',
@@ -43,7 +44,7 @@ export const PokemonsList = () => {
             "card5 card6 card7 card8"
             "card9 card10 card11 card12"
           `,
-                margin: '0 auto',
+                margin: '10px auto',
             }}
                   className={'main'}
             >
@@ -54,7 +55,7 @@ export const PokemonsList = () => {
                         name={p.name}
                         type={p.type}
                         level={p.level}
-                        style={{gridArea: `card${i + 1}`, border: '2px solid blue'}}
+                        style={{gridArea: `card${i + 1}`, border: '2px solid blue', borderRadius: '10px'}}
 
                     />
                 ))}

@@ -2,7 +2,8 @@ import React, {useEffect} from 'react';
 import {Header} from "../header/Header";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {fetchMyPokemons} from "../../store/reducers/ActionCreators";
-import Card from "../cards/Card";
+import {Card} from "../cards/Card";
+
 
 export const MyPokemons = () => {
     const dispatch = useAppDispatch();

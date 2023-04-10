@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import Web3 from "web3";
 import {pokemonSlice} from "../../store/reducers/PokemonSlice";
 import {useAppDispatch} from "../../hooks/redux";
+import s from './listSwitcher.module.scss'
 
 export const ListSwitcher = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -13,17 +14,15 @@ export const ListSwitcher = () => {
     };
 
     const style = {
-        width: "50%",
-        borderRadius: "16px",
-        height: "90%",
         backgroundColor: activeIndex === 0 ? "#0B213F" : "#eba000",
         color: activeIndex === 0 ? "white" : "black",
-        border: "none",
-        outline: "none",
+        width: "150px",
+        borderRadius: "16px",
+        height: '50px',
     };
 
     const style2 = {
-        width: "50%",
+        width: "150px",
         borderRadius: "16px",
         height: "90%",
         backgroundColor: activeIndex === 1 ? "#0B213F" : "#eba000",
@@ -90,12 +89,13 @@ export const ListSwitcher = () => {
         await handleAddToListClick()
     }
     return (
-        <div style={{width: "324px", height: "56px", border: "2px solid black", borderRadius: "16px"}}>
-            <Link style={style} to={"/"}>
-                <Button title={"Pokémon List"} onClick={() => handleButtonClick(0)}/>
+        <div className={s.header}>
+            <Link to={"/"}>
+                <Button style={style} className={s.link}
+                    title={"Pokémon List"} onClick={() => handleButtonClick(0)}/>
             </Link>
-            <Link style={style2} to={"/mypokémons"}>
-                <Button title={"My pokémons"} onClick={resulHandler}/>
+            <Link to={"/mypokémons"}>
+                <Button style={style2} title={"My pokémons"} onClick={resulHandler}/>
             </Link>
         </div>
     );

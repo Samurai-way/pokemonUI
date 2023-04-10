@@ -1,5 +1,5 @@
-import React, { CSSProperties, useState } from 'react';
-import { Button } from "../buttons/Button";
+import React, {CSSProperties, useState} from 'react';
+import {Button} from "../buttons/Button";
 import Web3 from 'web3';
 import {useAppDispatch} from "../../hooks/redux";
 import {pokemonSlice} from "../../store/reducers/PokemonSlice";
@@ -31,7 +31,7 @@ interface Props {
     style?: React.CSSProperties;
 }
 
-const Card: React.FC<Props> = (props: CardsPropsType) => {
+export const Card: React.FC<Props> = (props: CardsPropsType) => {
     const dispatch = useAppDispatch()
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -93,21 +93,22 @@ const Card: React.FC<Props> = (props: CardsPropsType) => {
     };
     return (
         <>
-            <div style={props.style} className={'card'} onClick={handleCardClick}>
-                <img src={props.img} alt={props.name} />
+            <div
+                // style={props.style}
+                 className={'card'} onClick={handleCardClick}>
+                <img src={props.img} alt={props.name}/>
                 <h1>{props.name}</h1>
                 <p>Type: {props.type}</p>
                 <p>Level: {props.level}</p>
             </div>
-
             {isModalOpen && (
                 <div className={'modal-overlay'}>
                     <div className={'modal'}>
                         <button className={'modal-close'} onClick={() => setIsModalOpen(false)}>
                             X
                         </button>
-                        <Button title={'Add to my list'} onClick={handleAddToListClick} />
-                        <img src={props.img} alt={props.name} />
+                        <Button title={'Add to my list'} onClick={handleAddToListClick}/>
+                        <img src={props.img} alt={props.name}/>
                         <h1>{props.name}</h1>
                         <p>Type: {props.type}</p>
                         <p>Level: {props.level}</p>
@@ -118,7 +119,6 @@ const Card: React.FC<Props> = (props: CardsPropsType) => {
     );
 };
 
-export default Card;
 
 
 
