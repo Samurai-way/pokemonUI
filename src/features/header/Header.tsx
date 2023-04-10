@@ -6,7 +6,7 @@ import h from './Header.module.scss'
 export const Header = () => {
     return (
         <header className={h.header}>
-            <img src={img}/>
+            <img src={img} alt={'pokemon'}/>
             <ListSwitcher/>
         </header>
     );
