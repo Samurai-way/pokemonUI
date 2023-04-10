@@ -1,22 +1,24 @@
-import React, {useEffect, useState} from 'react';
-import {Header} from "../header/Header";
-import {Button} from "../buttons/Button";
-import {useAppDispatch, useAppSelector} from "../../hooks/redux";
-import {fetchPokemons} from "../../store/reducers/ActionCreators";
-import {Card} from '../cards/Card';
-import a from '../../app/App.module.scss'
+import React, { useEffect, useState } from 'react';
+import { Header } from '../header/Header';
+import { Button } from '../buttons/Button';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { fetchPokemons } from '../../store/reducers/ActionCreators';
+import { Card } from '../cards/Card';
+import a from '../../app/App.module.scss';
+import {Spinner} from "../spinner/Spinner";
 
 export const PokemonsList = () => {
-
     const dispatch = useAppDispatch();
-    const {pokemons} = useAppSelector(
-        (state) => state.userReducer
-    );
+    const { pokemons } = useAppSelector((state) => state.userReducer);
 
     const [activePage, setActivePage] = useState(1);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        fetchPokemons(activePage, 10, dispatch);
+        setLoading(true);
+        fetchPokemons(activePage, 10, dispatch).then(() => {
+            setLoading(false);
+        });
     }, [activePage, dispatch]);
 
     const handlePrevClick = () => {
@@ -30,9 +32,10 @@ export const PokemonsList = () => {
     return (
         <div>
             <header>
-                <Header/>
+                <Header />
             </header>
             <main className={a.main}>
+                {loading && <Spinner/>}
                 {pokemons.map((p, i) => (
                     <Card
                         key={i}
@@ -40,17 +43,18 @@ export const PokemonsList = () => {
                         name={p.name}
                         type={p.type}
                         level={p.level}
-                        style={{gridArea: `card${i + 1}`, border: '2px solid blue', borderRadius: '10px'}}
-
+                        style={{
+                            gridArea: `card${i + 1}`,
+                            border: '2px solid blue',
+                            borderRadius: '10px',
+                        }}
                     />
                 ))}
             </main>
             <footer className={a.footer}>
                 <div className={a.buttonHeader}>
-                    <Button title={'Prev'} className={a.prev}
-                            onClick={handlePrevClick}/>
-                    <Button title={'Next'} className={a.next}
-                            onClick={handleNextClick}/>
+                    <Button title={'Prev'} className={a.prev} onClick={handlePrevClick} />
+                    <Button title={'Next'} className={a.next} onClick={handleNextClick} />
                 </div>
             </footer>
         </div>

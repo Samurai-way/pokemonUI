@@ -20,6 +20,7 @@ export const ListSwitcher = () => {
         width: "150px",
         borderRadius: "16px",
         height: '50px',
+        cursor: 'pointer'
     };
 
     const style2 = {
@@ -31,6 +32,7 @@ export const ListSwitcher = () => {
         border: "none",
         outline: "none",
         marginTop: "2px",
+        cursor: 'pointer'
     };
 
 

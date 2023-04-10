@@ -108,7 +108,7 @@ export const Card: React.FC<Props> = (props: CardsPropsType) => {
                         <button className={c.close} onClick={() => setIsModalOpen(false)}>
                             X
                         </button>
-                        <Button title={'Add to my list'} onClick={handleAddToListClick}/>
+                        <Button className={c.modalButton} title={'Add to my list'} onClick={handleAddToListClick}/>
                         <img src={props.img} alt={props.name}/>
                         <h1>{props.name}</h1>
                         <p>Type: {props.type}</p>
