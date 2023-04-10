@@ -62,7 +62,7 @@ export const Card: React.FC<Props> = (props: CardsPropsType) => {
                 id: 1, // Добавляем параметр id со значением 1
             });
             // Отправляем запрос на сервер для сохранения покемона в MongoDB
-            const response = await fetch('http://localhost:3000/api/pokemon/add', {
+            const response = await fetch('https://pokemon-api-hazel-delta.vercel.app/api/pokemon/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -5,6 +5,7 @@ import Web3 from "web3";
 import {pokemonSlice} from "../../store/reducers/PokemonSlice";
 import {useAppDispatch} from "../../hooks/redux";
 import s from './listSwitcher.module.scss'
+import axios from "axios";
 
 export const ListSwitcher = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -54,21 +55,10 @@ export const ListSwitcher = () => {
                 id: 1, // Добавляем параметр id со значением 1
             });
             // Отправляем запрос на сервер для сохранения покемона в MongoDB
-            const response = await fetch(`http://localhost:3000/api/pokemon/my`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    account,
-                    message,
-                    signature,
-                }),
-            });
-            const data = await response.json();
+            const response = await axios.get(`https://pokemon-api-hazel-delta.vercel.app/api/pokemon/my?account=${account}&message=${message}&signature=${signature}`);
 
-            if (response.ok) {
-                dispatch(pokemonSlice.actions.myPokemonsFetching(data.items));
+            if (response.data) {
+                dispatch(pokemonSlice.actions.myPokemonsFetching(response.data.items));
                 console.log('Pokemon added to list');
             } else {
                 console.error('Failed to add pokemon to list');
