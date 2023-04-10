@@ -5,17 +5,7 @@ import axios from "axios";
 export const fetchPokemons = async (page: number, limit: number, dispatch: AppDispatch) => {
     try {
         dispatch(pokemonSlice.actions.pokemonsFetching())
-        // const response = await axios.get(`https://pokemon-api-hazel-delta.vercel.app/api/pokemon?pageNumber=${page}&pageSize=${limit}`)
-        const response = await axios.get(`/api/pokemon?pageNumber=${page}&pageSize=${limit}`, {
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json'
-            },
-            proxy: {
-                host: 'https://pokemon-api-hazel-delta.vercel.app',
-                port: 443
-            }
-        });
+        const response = await axios.get(`https://pokemon-api-hazel-delta.vercel.app/api/pokemon?pageNumber=${page}&pageSize=${limit}`)
         dispatch(pokemonSlice.actions.pokemonsFetchingSuccess(response.data.items))
     } catch (e: any) {
         dispatch(pokemonSlice.actions.pokemonsFetchingError(e.message))
