@@ -5,7 +5,8 @@ import axios from "axios";
 export const fetchPokemons = async (page: number, limit: number, dispatch: AppDispatch) => {
     try {
         dispatch(pokemonSlice.actions.pokemonsFetching())
-        const response = await axios.get(`https://pokemon-api-hazel-delta.vercel.app/api/pokemon?pageNumber=${page}&pageSize=${limit}`)
+        // const response = await axios.get(`https://pokemon-api-hazel-delta.vercel.app/api/pokemon?pageNumber=${page}&pageSize=${limit}`)
+        const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://pokemon-api-hazel-delta.vercel.app/api/pokemon?pageNumber=${page}&pageSize=${limit}`);
         dispatch(pokemonSlice.actions.pokemonsFetchingSuccess(response.data.items))
     } catch (e: any) {
         dispatch(pokemonSlice.actions.pokemonsFetchingError(e.message))
