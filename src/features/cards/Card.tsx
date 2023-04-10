@@ -69,8 +69,14 @@ export const Card: React.FC<Props> = (props: CardsPropsType) => {
                 signature,
                 pokemonName: props.name,
             };
+            // const headers = {
+            //     'Content-Type': 'application/json',
+            // };
             const headers = {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
             };
             const response = await axios.post('https://pokemon-api-hazel-delta.vercel.app/api/pokemon/add', params, { headers});
 
