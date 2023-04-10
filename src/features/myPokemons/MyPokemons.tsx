@@ -3,7 +3,7 @@ import {Header} from "../header/Header";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {fetchMyPokemons} from "../../store/reducers/ActionCreators";
 import {Card} from "../cards/Card";
-
+import m from '../../app/App.module.scss'
 
 export const MyPokemons = () => {
     const dispatch = useAppDispatch();
@@ -21,22 +21,7 @@ export const MyPokemons = () => {
                 <header>
                     <Header/>
                 </header>
-                <main style={{
-                    display: 'grid',
-                    width: '1290px',
-                    height: '312px',
-                    gridTemplateColumns: 'repeat(4, 1fr)',
-                    gridAutoRows: '1fr',
-                    gridGap: '20px',
-                    gridTemplateAreas: `
-            "card1 card2 card3 card4"
-            "card5 card6 card7 card8"
-            "card9 card10 card11 card12"
-          `,
-                    margin: '0 auto',
-                }}
-                      className={'main'}
-                >
+                <main className={m.main}>
                     {myPokemons.map((p, i) => (
                         <Card
                             key={i}

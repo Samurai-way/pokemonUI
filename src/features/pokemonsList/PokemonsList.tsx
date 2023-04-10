@@ -3,8 +3,9 @@ import {Header} from "../header/Header";
 import {Button} from "../buttons/Button";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {fetchPokemons} from "../../store/reducers/ActionCreators";
-import { Card } from '../cards/Card';
+import {Card} from '../cards/Card';
 import a from '../../app/App.module.scss'
+
 export const PokemonsList = () => {
 
     const dispatch = useAppDispatch();
@@ -44,18 +45,11 @@ export const PokemonsList = () => {
                     />
                 ))}
             </main>
-            <footer
-                style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    marginTop: '550px',
-                }}
-            >
-                <div style={{width: '324px', height: '56px', borderRadius: '16px'}}>
-                    <Button title={'Prev'} style={{width: '83px', borderRadius: '16px', height: '48px'}}
+            <footer className={a.footer}>
+                <div className={a.buttonHeader}>
+                    <Button title={'Prev'} className={a.prev}
                             onClick={handlePrevClick}/>
-                    <Button title={'Next'} style={{width: '83px', borderRadius: '16px', height: '48px'}}
+                    <Button title={'Next'} className={a.next}
                             onClick={handleNextClick}/>
                 </div>
             </footer>
