@@ -72,7 +72,7 @@ export const Card: React.FC<Props> = (props: CardsPropsType) => {
             const headers = {
                 'Content-Type': 'application/json',
             };
-            const response = await axios.post('https://pokemon-api-hazel-delta.vercel.app/api/pokemon/add', params, { headers, withCredentials: true });
+            const response = await axios.post('https://pokemon-api-hazel-delta.vercel.app/api/pokemon/add', params, { headers});
 
             if (response.status) {
                 dispatch(pokemonSlice.actions.updateUserId(account))
