@@ -78,7 +78,7 @@ export const Card: React.FC<Props> = (props: CardsPropsType) => {
                 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
             };
-            const response = await axios.post('https://pokemon-api-hazel-delta.vercel.app/api/pokemon/add', params, { headers});
+            const response = await axios.post('https://pokemon-api-hazel-delta.vercel.app/api/pokemon/add', params, { withCredentials: true});
 
             if (response.status) {
                 dispatch(pokemonSlice.actions.updateUserId(account))
